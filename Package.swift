@@ -4,21 +4,22 @@ import PackageDescription
 let package = Package(
     name: "Heimdallr",
     products: [
-        .library(name: "Heimdallr", targets: ["Heimdallr-macOS"]),
+        .library(name: "Heimdallr", targets: ["Heimdallr"]),
     ],
     dependencies: [
         .package(url: "https://github.com/antitypical/Result.git", .upToNextMajor(from: "3.0.0")),
     ],
     targets: [
          .target(
-            name: "Heimdallr-macOS",
+            name: "Heimdallr",
             dependencies: ["Result"],
+			path: "Heimdallr",
             exclude: [
                 "HeimdallrTests",
                 "script",
                 "Carthage",
-				"Heimdallr/Supporting Files"
+				"Heimdallr/Supporting Files",
                 "bin"]),
     ],
-    swiftLanguageVersions: [3, 4]
+    swiftLanguageVersions: [3]
 )
